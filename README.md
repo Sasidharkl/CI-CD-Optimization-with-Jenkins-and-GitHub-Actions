@@ -53,4 +53,17 @@ This project demonstrates an optimized CI/CD workflow using **Jenkins** and **Gi
 ```bash
 docker build --cache-from=my-app:latest -t my-app:latest .
 
+---
+
+Summary:
+GitHub Actions CI/CD with Docker cache + rollback
+
+Jenkins CI/CD with rollback support
+
+Docker layer caching to speed up builds
+
+Simple rollback using a previous tagged image
+
+Optional Terraform for provisioning infrastructure
+
 
