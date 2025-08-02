@@ -1,0 +1,1 @@
+Optimize the CI/CD process using Jenkins and GitHub Actions for a Docker-based web application. Ensure fast builds with caching, secure delivery with rollback, and clean pipelines with reusable workflows.
