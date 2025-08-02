@@ -1,0 +1,13 @@
+CI/CD Tools: Jenkins, GitHub Actions
+
+Containerization: Docker
+
+Cloud Deployment: AWS EC2 / Kubernetes (optional Helm for rollback)
+
+Version Control: Git + GitHub
+
+Scripting: Bash / Shell / Python
+
+Infra-as-Code: Terraform (Optional)
+
+Caching: Docker layer caching, GitHub Actions caching
