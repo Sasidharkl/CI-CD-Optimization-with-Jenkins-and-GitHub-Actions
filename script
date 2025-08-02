@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Deploying application..."
+docker stop app || true
+docker rm app || true
+docker pull myusername/my-app:latest
+docker run -d --name app -p 5000:5000 myusername/my-app:latest
