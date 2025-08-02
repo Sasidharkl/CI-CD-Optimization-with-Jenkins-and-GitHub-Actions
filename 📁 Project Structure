@@ -1,0 +1,24 @@
+ci-cd-optimization/
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── jenkins/
+│   ├── Jenkinsfile
+│   └── rollback.sh
+│
+├── docker/
+│   └── Dockerfile
+│
+├── src/
+│   └── app.py  (Sample Python web app)
+│
+├── scripts/
+│   ├── deploy.sh
+│   └── rollback.sh
+│
+├── terraform/ (optional)
+│   └── main.tf
+│
+└── README.md
