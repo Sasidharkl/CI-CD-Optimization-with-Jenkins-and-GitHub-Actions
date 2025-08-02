@@ -1,0 +1,36 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Cache Docker layers
+      uses: actions/cache@v3
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-docker-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-docker-
+
+    - name: Build Docker image
+      run: |
+        docker build -t my-app:latest .
+
+    - name: Push image to DockerHub (or GHCR)
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker tag my-app:latest myusername/my-app:latest
+        docker push myusername/my-app:latest
+
+    - name: Deploy
+      run: bash scripts/deploy.sh || bash scripts/rollback.sh
